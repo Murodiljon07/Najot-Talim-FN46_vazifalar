@@ -1,0 +1,293 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --box-color: #ffffff;
+  --main-color: #fafafaf2;
+  --text-color: #111111;
+  --link-color: #aaaaaa;
+}
+
+:root.dark-theme {
+  --box-color: #1c1c1c1c;
+  --main-color: #111111;
+  --text-color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+body {
+  background: var(--main-color);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  padding: 25px;
+  justify-content: space-between;
+}
+
+/* nav-bar */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  font-size: 26px;
+  color: var(--text-color);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.bx-search-alt {
+  font-size: 1.8rem;
+  margin-right: 5px;
+}
+
+#search-input {
+  border: none;
+  background: none;
+  color: var(--text-color);
+}
+
+#search-input:focus {
+  outline: none;
+  background: none;
+}
+
+#search-input::placeholder {
+  color: var(--text-color);
+}
+
+#theme {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--text-color);
+}
+
+#theme-btn {
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+#chesced-users {
+  font-size: 1.8rem;
+}
+
+.hero {
+  width: 90%;
+  height: 150px;
+  border-radius: 15px;
+  border: 1px solid var(--text-color);
+  margin-bottom: 40px;
+}
+
+/* main */
+main {
+  position: relative;
+  display: grid;
+  justify-content: center;
+}
+
+#main {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.plus-bar {
+  margin: 20px;
+}
+
+#chesced-users {
+  position: absolute;
+  right: 20px;
+  top: -20px;
+  font-size: 2.2rem;
+}
+
+.user-box {
+  position: relative;
+  width: 260px;
+  padding: 10px;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  color: var(--text-color);
+  background: var(--box-color);
+  z-index: 0;
+}
+
+.edit-btn {
+  font-size: 10px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-desk {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+  border: 1px solid var(--text-color);
+  padding: 10px;
+  border-radius: 5px;
+  background: var(--box-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: 1s;
+}
+
+.edit-desk.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(90px);
+}
+
+.close-edit-btn,
+.accept-user,
+.remove-user {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 0;
+  border: none;
+  background: none;
+  color: var(--text-color);
+}
+
+.close-edit-btn:hover,
+.accept-user:hover,
+.remove-user:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background: var(--main-color);
+}
+
+.remove-user:hover {
+  .bxs-user-x {
+    color: red;
+  }
+}
+.accept-user:hover {
+  .bx-user-plus {
+    color: yellowgreen;
+  }
+}
+
+.user-box a {
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+}
+
+.user-box .bx {
+  font-size: 1.8rem;
+  margin-right: 5px;
+}
+
+.user-box-img {
+  display: flex;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0 20px;
+}
+.user-box-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.full-name {
+  font-size: 2.2rem;
+}
+.user-name {
+  font-size: 1.2rem;
+}
+.bx {
+  color: var(--text-color);
+}
+
+.address,
+.web,
+.phone,
+.company,
+.email {
+  display: block;
+  max-width: 80%;
+  overflow: hidden;
+}
+
+@media (max-width: 980px) {
+  #main {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 50px;
+  }
+
+  .edit-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  #main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  .edit-desk {
+    display: none;
+  }
+}

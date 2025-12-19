@@ -1,1 +1,0 @@
-# Najot-Talim-FN46_vazifalar
